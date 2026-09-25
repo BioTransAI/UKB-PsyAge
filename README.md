@@ -15,7 +15,6 @@
 | **5** | PAA and phenotypes | Derive psychological age acceleration (PAA); regress PAA on each phenotype, age, and covariates; apply Benjamini–Hochberg correction. |
 | **6** | Disease and mortality | Fit Cox, negative-binomial, and Fine–Gray models, including two-year lag and baseline disease-burden analyses. |
 | **7** | Diagnostics and nonlinearity | Assess proportional hazards, three-degree-of-freedom natural splines, and four-knot restricted cubic splines; retain numerical predictions. |
-| **8** | Supplementary tables | Assemble S00–S11, including Bonferroni-adjusted results, and export CSV, XLSX, RDS, and software session information. |
 
 ## Measures and adjustment
 
@@ -31,17 +30,17 @@ Adjustment includes age, sex, ethnicity, Townsend deprivation index, qualificati
 | :--- | :--- |
 | Main data object | `datall$q_final$mhq2016`: numeric age `label` and questionnaire features, with participant IDs in row names; `datall$age_data_2016`: assessment dates, completion status, and age. |
 | Covariates and phenotypes | Participant-level covariates and phenotype measurements linked by participant ID. |
-| Annotations | Feature dictionary, phenotype annotations, and phenotype categories for supplementary tables. |
+| Annotations | Feature dictionary and phenotype annotations. |
 | Clinical events | Participant IDs, hospital ICD-10 codes and event dates, and death dates. |
 
 1. Replace descriptive `<PLACEHOLDERS>` with local input, output, and directory locations; repeated placeholders identify the same resource.
 2. Make the required data and software available, then run modules in order. Official UKB schema URLs remain in the script for annotation downloads.
-3. Inspect exported results and the recorded software session. Plotting is not part of this distribution.
+3. Inspect the exported analysis results. Plotting is not part of this distribution.
 
 <details>
 <summary><strong>Software</strong></summary>
 
-R packages include `data.table`, `mlr3`, `mlr3learners`, `mlr3extralearners`, `lightgbm`, `parallel`, `survival`, `MASS`, `cmprsk`, `rms`, and `openxlsx`, plus the backend packages required by the configured learners. Natural splines use `splines`. Worker settings are retained in the script.
+R packages include `data.table`, `mlr3`, `mlr3learners`, `mlr3extralearners`, `lightgbm`, `parallel`, `survival`, `MASS`, `cmprsk`, and `rms`, plus the backend packages required by the configured learners. Natural splines use `splines`. Worker settings are retained in the script.
 
 </details>
 
